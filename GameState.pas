@@ -1,8 +1,10 @@
 ﻿unit GameState;
 
 interface
+
 uses Types;
-procedure LoadChapter(Chapp: Chapter);
+
+procedure loadChapter(Chapp: Chapter);
 function handleOption(buttonID: integer): Slide;
 function getScore(): integer;
 
@@ -28,7 +30,7 @@ begin
 end;
 
  ///инициализация     
-procedure LoadChapter(Chapp: Chapter);
+procedure loadChapter(Chapp: Chapter);
 begin
   score := 0;
   slideId := 0;
@@ -50,5 +52,4 @@ function getScore(): integer;
 begin
   getScore := score;
 end;
-
 end.

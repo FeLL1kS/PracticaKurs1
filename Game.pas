@@ -5,27 +5,48 @@ interface
   procedure run;
 
 implementation
-  const configFile = 'data/config.cfg';
-  
-  var config: Dictionary<string,integer> := new Dictionary<string,integer>;
-  
-  procedure init();
+  procedure onClick(buttonId: integer);
   begin
-    Graph.createWindow('Tupa game');
-    GameState.setState(0);
-  end;
-  
-  procedure mainLoop();
-  begin
-    while true do begin
-      
+    case (GameState.getState()) of
+      0: begin
+        case (buttonId) of
+          BUTTON_NEW_GAME: begin
+            GameState.setState(STATE_GAME);
+            GameState.loadChapter(Story.getChapter(1));
+          end;
+          BUTTON_LOAD: begin
+          end;
+          BUTTON_SETTINGS: begin
+          end;
+          BUTTON_EXIT: begin
+            Graph.closeWindow();
+            exit();
+          end;
+        end;
+      end;
+      1: begin
+        case (buttonId) of
+          BUTTON_MENU: begin
+            GameState.setState(STATE_MENU);
+            Graph.drawMenu();
+          end;
+          BUTTON_SAVE: begin
+            
+          end;
+          else Graph.drawSlide(GameState.handleOption(buttonId));
+        end;
+      end;
     end;
   end;
   
   procedure run();
+  var
+    clickCallback: Callback;
   begin
-    init();
-    
-    mainLoop();
+    Graph.createWindow('Цвет настроения - радужный');
+    GameState.setState(STATE_MENU);
+    clickCallback := onClick;
+    Graph.setClickCallback(clickCallback);
+    Graph.drawMenu();
   end;
 end.
