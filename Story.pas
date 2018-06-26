@@ -13,10 +13,9 @@ function getChapter(chapterId: integer): Chapter;
 var
   chapt: Chapter;
   f: text;
-  txt, image, opt: string;
+  txt, image, opt, kus: string;
   i: integer;
-  a: array of string;
-  b: array [0..2] of string;
+  a, b: array of string;
 begin
   assign(f, chapterId + '.txt');
   reset(f); 
@@ -33,7 +32,13 @@ begin
   for i := 1 to length(chapt.slides) do
     chapt.slides[i].picture := 'data/images' + image + '.jpg';
   
+  a := txt.Split(';');
   
+  for i := 0 to 2 do 
+  begin
+    kus := a[i];
+    foreach kus in a do
+      b := kus.split('|'); end;
   
   getChapter := chapt;
 end;
