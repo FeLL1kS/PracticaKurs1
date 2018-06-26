@@ -2,12 +2,12 @@
 interface
   type
     Option = record
-      text: integer;
+      text: string;
       nextSlide: integer;
       score: integer;
     end;
     Slide = record
-      text: integer;
+      text: string;
       picture: string;
       options: array of Option;
     end;

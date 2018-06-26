@@ -17,14 +17,18 @@ implementation
   var buttons: array of OptionButton;
 
 
-  function onClick();
+  procedure onClick(x,y,mb: integer);
   begin
+    if (mb = 1) then begin
+      foreach 
+    end;
   end;
 
 
   procedure createWindow(title: string);
   begin
     Window := GraphABC.Window();
+    OnMouseDown := onClick;
     Window.Init(0,0,0,0,clBlack);
     Window.Title := title;
     Window.Maximize();
@@ -39,7 +43,6 @@ implementation
   var
     slidePicture: Picture;
     width, y: integer;
-    opt: Option;
   begin
     slidePicture := Picture.Create(sl.picture);
     slidePicture.Draw(0, 0, Window.Width, Window.Height);
@@ -49,7 +52,7 @@ implementation
     y := Window.Height - 50;
     drawTextCentered(width, y - 100, width * 2, y, sl.text);
     
-    foreach opt in sl.options do begin
+    foreach opt: Option in sl.options do begin
       setLength(buttons, buttons.Length + 1);
       
       y -= 150;
