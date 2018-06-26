@@ -1,17 +1,17 @@
 ﻿unit Types;
 interface
   type
-    Option: record
+    Option = record
       text: integer;
       nextSlide: integer;
       score: integer;
     end;
-    Slide: record
+    Slide = record
       text: integer;
       picture: string;
       options: array of Option;
     end;
-    Chapter: record
+    Chapter = record
       title: string;
       slides: array of Slide;
     end;

@@ -1,7 +1,7 @@
 ﻿unit Graph;
 
 interface
-  uses GraphABC;
+  uses GraphABC, Types;
   
   procedure createWindow(title: string);
   procedure quit();
@@ -12,6 +12,11 @@ implementation
   begin
     setwindowtitle(title);
     maximizewindow();
+  end;
+  
+  procedure drawSlide(sl: Slide);
+  begin
+    
   end;
   
   procedure quit();

@@ -1,10 +1,13 @@
-unit GameState;
+п»їunit GameState;
 
 interface
 uses Types;
-procedure LoadChapter();
+procedure LoadChapter(Chapp: Chapter);
 function handleOption(buttonID: integer): Slide;
 function getScore(): integer;
+
+procedure setState(st: integer);
+function getState(): integer;
 
 implementation
 
@@ -12,19 +15,19 @@ var
   score, slideId, state: integer;
   Chap: Chapter;
 
-///изменение состояния
+///РёР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 procedure setState(st: integer);
 begin
   state := st;
 end;
 
-///возврат состояния
+///РІРѕР·РІСЂР°С‚ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 function getState(): integer;
 begin
   getState := state
 end;
 
- ///инициализация     
+ ///РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ     
 procedure LoadChapter(Chapp: Chapter);
 begin
   score := 0;
@@ -32,17 +35,17 @@ begin
   Chap := Chapp;
 end;
 
- ///смена слайда и посчет очков
+ ///СЃРјРµРЅР° СЃР»Р°Р№РґР° Рё РїРѕСЃС‡РµС‚ РѕС‡РєРѕРІ
 function handleOption(buttonID: integer): Slide;
 begin
   if (buttonId > Chap.slides[slideId].options.length) then begin
-    score := score + Chap.slides[slideId].options[buttonID];
+    score += Chap.slides[slideId].options[buttonID].score;
     slideId := Chap.slides[slideId].options[buttonID].nextSlide;
     handleOption := Chap.slides[slideId];
   end;
 end;
 
-///возврат счета
+///РІРѕР·РІСЂР°С‚ СЃС‡РµС‚Р°
 function getScore(): integer;
 begin
   getScore := score;

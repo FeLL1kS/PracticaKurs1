@@ -28,12 +28,4 @@ implementation
     
     mainLoop();
   end;
-<<<<<<< HEAD:game.pas
 end.
-=======
-
-//finalization
-//  quit;
-
-end.
->>>>>>> b022770f8fb78da1a81e26898890979846363df6:Game.pas
