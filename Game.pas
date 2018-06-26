@@ -11,7 +11,7 @@ implementation
   
   procedure init();
   begin
-    Graph.createWindow('');
+    Graph.createWindow('Tupa game');
     GameState.setState(0);
   end;
   
