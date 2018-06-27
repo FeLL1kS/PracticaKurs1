@@ -2,19 +2,19 @@
 
 interface
 uses Types;
-procedure save(sv:save);
+procedure fsave(sv: Save);
 function load():save;
 
 
 implementation
 ///Зпись сохранения    
-procedure save(sv:save);
+procedure fsave(sv: Save);
 var
   f: text;
 begin
   Assign(f, 'data/save.txt');
   rewrite(f);
-  write(f, sv.score,sv.chapter,sv.clide);
+  write(f, sv.score,sv.chapter,sv.slide);
   close(f);
 end;
 ///открытие сохранения
@@ -30,7 +30,7 @@ begin
     close(f);
   except
     sv.score := 0;
-    sv.chapter := 0;
+    sv.chapter := 1;
     sv.slide := 0;
   end;
   load:=sv;

@@ -4,12 +4,13 @@ interface
 
 uses Types;
 
-procedure loadChapter(Chapp: Chapter; sl, sc: integer);
+procedure loadChapter(Chapp: Chapter; cp, sl, sc: integer);
 function handleOption(buttonID: integer): Slide;
 function getScore(): integer;
 
 procedure setState(st: integer);
 function getState(): integer;
+function getFullState(): Save;
 
 implementation
 

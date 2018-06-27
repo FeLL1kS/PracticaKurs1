@@ -37,7 +37,7 @@ implementation
             Graph.drawMenu();
           end;
           BUTTON_SAVE: begin
-            Saver.save(GameState.getFullState());
+            Saver.fsave(GameState.getFullState());
           end;
           else Graph.drawSlide(GameState.handleOption(buttonId));
         end;
