@@ -1,7 +1,7 @@
 ﻿unit Game;
 
 interface
-  uses Graph, Types, GameState, Story, Saver;
+  uses Graph, Types, GameState, Story, Saver, Music;
   procedure run;
 
 implementation
@@ -48,7 +48,8 @@ implementation
   
   procedure gameoverCallback(chapterId: integer);
   begin
-    exit();
+    GameState.setState(STATE_MENU);
+    Graph.drawMenu();
   end;
   
   procedure run();
@@ -61,6 +62,7 @@ implementation
     GameState.registerGameoverCallback(clickCallback);
     clickCallback := onClick;
     Graph.setClickCallback(clickCallback);
+    Music.play();
     Graph.drawMenu();
   end;
 end.

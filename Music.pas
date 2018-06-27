@@ -1,14 +1,14 @@
-unit Music;
+ï»¿unit Music;
 
 interface
 uses GraphABC; 
-procedure musition;
+procedure play;
 
 implementation
-///ìóçûêà
-procedure musition;
+///Ğ¼ÑƒĞ·Ñ‹ĞºĞ°
+procedure play;
 begin
-  var Player := new System.Media.soundPlayer('soundtrec.wav');
+  var Player := new System.Media.soundPlayer('data/soundtrec.wav');
   Player.Play(); 
 end;
 end.
