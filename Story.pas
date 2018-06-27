@@ -27,7 +27,7 @@ begin
     readln(f, image);
     readln(f, opt);
     
-    chapt.slides[i].picture := 'data/images/slides' + image + '.jpg';
+    chapt.slides[i].picture := 'data/images/slides/' + image + '.jpg';
     a := txt.Split(';');
     
     setLength(chapt.slides[i].options,a.Length);

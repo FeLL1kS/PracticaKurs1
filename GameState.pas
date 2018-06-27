@@ -4,7 +4,7 @@ interface
 
 uses Types;
 
-procedure loadChapter(Chapp: Chapter);
+procedure loadChapter(Chapp: Chapter; sl, sc: integer);
 function handleOption(buttonID: integer): Slide;
 function getScore(): integer;
 
@@ -30,10 +30,10 @@ begin
 end;
 
  ///инициализация     
-procedure loadChapter(Chapp: Chapter);
+procedure loadChapter(Chapp: Chapter; sl, sc: integer);
 begin
-  score := 0;
-  slideId := 0;
+  score := sc;
+  slideId := sl;
   Chap := Chapp;
 end;
 

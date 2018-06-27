@@ -12,7 +12,9 @@ implementation
         case (buttonId) of
           BUTTON_NEW_GAME: begin
             GameState.setState(STATE_GAME);
-            GameState.loadChapter(Story.getChapter(1));
+            var chp := Story.getChapter(1);
+            GameState.loadChapter(chp,0,0);
+            Graph.drawSlide(chp.slides[0]);
           end;
           BUTTON_LOAD: begin
           end;

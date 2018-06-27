@@ -106,13 +106,12 @@ implementation
     
     current_x := round(Window.Width / 2 - GRAPH_BUTTON_WIDTH / 2);
     current_y := Window.Height - GRAPH_BUTTON_SPACE;
-    drawTextCentered(current_x, current_y, current_x + GRAPH_BUTTON_WIDTH, current_y + GRAPH_BUTTON_HEIGHT, sl.text);
-    textBackground.Draw(current_x, current_y, GRAPH_BUTTON_WIDTH, GRAPH_BUTTON_HEIGHT);
     
     foreach opt: Option in sl.options do begin
       setLength(buttons, buttons.Length + 1);
       
       current_y -= GRAPH_BUTTON_HEIGHT + GRAPH_BUTTON_SPACE;
+      textBackground.Draw(current_x, current_y, GRAPH_BUTTON_WIDTH, GRAPH_BUTTON_HEIGHT);
       drawTextCentered(current_x, current_y, current_x + GRAPH_BUTTON_WIDTH, current_y + GRAPH_BUTTON_HEIGHT, opt.text);
       
       with buttons[buttons.Length - 1] do begin
@@ -123,6 +122,10 @@ implementation
         id := buttons.Length - 1;
       end;
     end;
+    
+    current_y -= GRAPH_BUTTON_HEIGHT * 2 + GRAPH_BUTTON_SPACE;
+    drawTextCentered(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), current_x + GRAPH_BUTTON_WIDTH * 2, current_y + GRAPH_BUTTON_HEIGHT * 2, sl.text);
+    textBackground.Draw(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), GRAPH_BUTTON_WIDTH * 2, GRAPH_BUTTON_HEIGHT * 2);
   end;
   
   procedure closeWindow();
