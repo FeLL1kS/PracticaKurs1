@@ -1,4 +1,4 @@
-unit save;
+п»їunit save;
 
 interface
 uses Types;
@@ -7,7 +7,7 @@ function load():save;
 
 
 implementation
-///Зпись сохранения    
+///Р—РїРёСЃСЊ СЃРѕС…СЂР°РЅРµРЅРёСЏ    
 procedure save(sv:save);
 var
   f: text;
@@ -17,14 +17,22 @@ begin
   write(f, sv.score,sv.chapter,sv.clide);
   close(f);
 end;
-///открытие сохранения
+///РѕС‚РєСЂС‹С‚РёРµ СЃРѕС…СЂР°РЅРµРЅРёСЏ
 function load():save;
 var
   sv: Save;
   f: text;
 begin
-  Assign(f, 'data/save.txt');
-  read(f, sv.score,sv.chapter,sv.clide);
+  try
+    Assign(f, 'data/save.txt');
+    reset(f);
+    read(f, sv.score,sv.chapter,sv.slide);
+    close(f);
+  except
+    sv.score := 0;
+    sv.chapter := 0;
+    sv.slide := 0;
+  end;
   load:=sv;
 end;
 end.
