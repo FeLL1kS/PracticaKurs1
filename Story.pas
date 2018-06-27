@@ -1,4 +1,4 @@
-unit story;
+﻿unit story;
 
 interface
 
@@ -17,7 +17,7 @@ var
   i: integer;
   a, b: array of string;
 begin
-  assign(f, chapterId + '.txt');
+  assign(f, 'data/story/' + chapterId + '.txt');
   reset(f); 
   readln(f, chapt.title);
   
