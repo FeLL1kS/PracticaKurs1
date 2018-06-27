@@ -114,7 +114,6 @@ implementation
     current_x := round(Window.Width / 2 - GRAPH_BUTTON_WIDTH / 2);
     current_y := Window.Height - GRAPH_BUTTON_SPACE;
     
-  writeln(sl);
     setLength(buttons, 0);
     foreach opt: Option in sl.options do begin
       setLength(buttons, buttons.Length + 1);

@@ -14,7 +14,7 @@ function getState(): integer;
 implementation
 
 var
-  score, slideId, state: integer;
+  score, slideId, chapterId, state: integer;
   Chap: Chapter;
 
 ///изменение состояния
@@ -29,11 +29,22 @@ begin
   getState := state
 end;
 
+function getFullState(): Save;
+var
+  sv: Save;
+begin
+  sv.chapter := chapterId;
+  sv.slide := slideId;
+  sv.score := score;
+  getFullState := sv;
+end;
+
  ///инициализация     
-procedure loadChapter(Chapp: Chapter; sl, sc: integer);
+procedure loadChapter(Chapp: Chapter; cp, sl, sc: integer);
 begin
   score := sc;
   slideId := sl;
+  chapterId := cp;
   Chap := Chapp;
 end;
 
