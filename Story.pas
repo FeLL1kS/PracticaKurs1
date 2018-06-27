@@ -30,7 +30,7 @@ begin
   end;
   
   for i := 1 to length(chapt.slides) do
-    chapt.slides[i].picture := 'data/images/' + image + '.jpg';
+    chapt.slides[i].picture := 'data/images/slides/' + image + '.jpg';
   
   a := opt.Split(';');
   
