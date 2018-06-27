@@ -46,12 +46,19 @@ implementation
     end;
   end;
   
+  procedure gameoverCallback(chapterId: integer);
+  begin
+    exit();
+  end;
+  
   procedure run();
   var
     clickCallback: Callback;
   begin
     Graph.createWindow('Цвет настроения - радужный');
     GameState.setState(STATE_MENU);
+    clickCallback := gameoverCallback;
+    GameState.registerGameoverCallback(clickCallback);
     clickCallback := onClick;
     Graph.setClickCallback(clickCallback);
     Graph.drawMenu();

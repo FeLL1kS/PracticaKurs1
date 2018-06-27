@@ -60,11 +60,10 @@ end;
  ///смена слайда и посчет очков
 function handleOption(buttonID: integer): Slide;
 begin
-  try
+  if ((Chap.slides[slideId].options.Length > 0) and (buttonId < Chap.slides[slideId].options.Length)) then begin
     score += Chap.slides[slideId].options[buttonID].score;
     slideId := Chap.slides[slideId].options[buttonID].nextSlide;
     if (slideId = Chap.slides.Length) then gameoverCallback(chapterId);
-  except
   end;
   handleOption := Chap.slides[slideId];
 end;
