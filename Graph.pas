@@ -132,8 +132,8 @@ implementation
     end;
     
     current_y -= GRAPH_BUTTON_HEIGHT * 2 + GRAPH_BUTTON_SPACE;
-    drawTextCentered(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), current_x + GRAPH_BUTTON_WIDTH * 2, current_y + GRAPH_BUTTON_HEIGHT * 2, sl.text);
     textBackground.Draw(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), GRAPH_BUTTON_WIDTH * 2, GRAPH_BUTTON_HEIGHT * 2);
+    drawTextCentered(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), current_x + GRAPH_BUTTON_WIDTH * 2 - round(GRAPH_BUTTON_WIDTH / 2), current_y + GRAPH_BUTTON_HEIGHT * 2 - round(GRAPH_BUTTON_HEIGHT / 2), sl.text);
  
     setLength(buttons, buttons.Length + 2);
     try
