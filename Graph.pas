@@ -49,6 +49,8 @@ implementation
     end;
     Window := GraphABC.Window();
     OnMouseDown := onClick;
+    setFontSize(16);
+    setFontColor(clWhite);
     Window.Init(0, 0, 0, 0, GraphABC.clBlack);
     Window.Title := title;
     Window.Maximize();
@@ -101,12 +103,19 @@ implementation
     slidePicture: Picture;
     current_x,current_y: integer;
   begin
-    slidePicture := new Picture(sl.picture);
-    slidePicture.Draw(0, 0, Window.Width, Window.Height);
+    try
+      slidePicture := new Picture(sl.picture);
+      slidePicture.Draw(0, 0, Window.Width, Window.Height);
+    except
+      setBrushColor(GRAPH_SLIDE_BACKGROUND_COLOR);
+      fillRectangle(0, 0, Window.Width, Window.Height);
+    end;
     
     current_x := round(Window.Width / 2 - GRAPH_BUTTON_WIDTH / 2);
     current_y := Window.Height - GRAPH_BUTTON_SPACE;
     
+  writeln(sl);
+    setLength(buttons, 0);
     foreach opt: Option in sl.options do begin
       setLength(buttons, buttons.Length + 1);
       

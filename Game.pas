@@ -50,5 +50,6 @@ implementation
     clickCallback := onClick;
     Graph.setClickCallback(clickCallback);
     Graph.drawMenu();
+    writeln(Story.getChapter(1));
   end;
 end.

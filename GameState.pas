@@ -40,11 +40,12 @@ end;
  ///смена слайда и посчет очков
 function handleOption(buttonID: integer): Slide;
 begin
-  if (buttonId > Chap.slides[slideId].options.length) then begin
+  try
     score += Chap.slides[slideId].options[buttonID].score;
     slideId := Chap.slides[slideId].options[buttonID].nextSlide;
-    handleOption := Chap.slides[slideId];
+  except
   end;
+  handleOption := Chap.slides[slideId];
 end;
 
 ///возврат счета

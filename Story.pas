@@ -13,7 +13,7 @@ var
   
   chapt: Chapter;
   f: text;
-  txt, image, opt, kus: string;
+  image, opt, kus: string;
   i: integer;
   a, b: array of string;
 begin
@@ -28,13 +28,12 @@ begin
     readln(f, opt);
     
     chapt.slides[i].picture := 'data/images/slides/' + image + '.jpg';
-    a := txt.Split(';');
-    
-    setLength(chapt.slides[i].options,a.Length);
+    a := opt.Split(';');
     
     for var j := 0 to a.Length - 1 do begin
-      b := kus.split('|');
+      b := a[j].split('|');
       if (b.Length = 3) then begin
+        setLength(chapt.slides[i].options, j + 1);
         chapt.slides[i].options[j].text := b[0];
         chapt.slides[i].options[j].nextSlide := b[1].toInteger();
         chapt.slides[i].options[j].score := b[2].toInteger();
