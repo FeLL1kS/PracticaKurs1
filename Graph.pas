@@ -134,7 +134,38 @@ implementation
     current_y -= GRAPH_BUTTON_HEIGHT * 2 + GRAPH_BUTTON_SPACE;
     drawTextCentered(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), current_x + GRAPH_BUTTON_WIDTH * 2, current_y + GRAPH_BUTTON_HEIGHT * 2, sl.text);
     textBackground.Draw(current_x - round(GRAPH_BUTTON_WIDTH / 2), current_y - round(GRAPH_BUTTON_HEIGHT / 2), GRAPH_BUTTON_WIDTH * 2, GRAPH_BUTTON_HEIGHT * 2);
-  end;
+ 
+    setLength(buttons, buttons.Length + 2);
+    try
+      var menuButtonImage := new Picture(GRAPH_SLIDE_BUTTON_MENU_IMAGE);
+      menuButtonImage.Draw(50, 50, GRAPH_SLIDE_BUTTON_MENU_SIZE, GRAPH_SLIDE_BUTTON_MENU_SIZE);
+    except
+      drawRectangle(50, 50, 50 + GRAPH_SLIDE_BUTTON_MENU_SIZE, 50 + GRAPH_SLIDE_BUTTON_MENU_SIZE);
+      drawTextCentered(50, 50, 50 + GRAPH_SLIDE_BUTTON_MENU_SIZE, 50 + GRAPH_SLIDE_BUTTON_MENU_SIZE, 'M');
+    end;
+    with buttons[buttons.Length - 2] do begin
+      x := 50;
+      y := 50;
+      width := GRAPH_SLIDE_BUTTON_MENU_SIZE;
+      height := GRAPH_SLIDE_BUTTON_MENU_SIZE;
+      id := BUTTON_MENU;
+    end;
+    
+    try
+      var menuButtonImage := new Picture(GRAPH_SLIDE_BUTTON_SAVE_IMAGE);
+      menuButtonImage.Draw(Window.Width - GRAPH_SLIDE_BUTTON_SAVE_SIZE - 50, 50, GRAPH_SLIDE_BUTTON_SAVE_SIZE, GRAPH_SLIDE_BUTTON_SAVE_SIZE);
+    except
+      drawRectangle(Window.Width - GRAPH_SLIDE_BUTTON_SAVE_SIZE - 50, 50, Window.Width - 50, 50 + GRAPH_SLIDE_BUTTON_SAVE_SIZE);
+      drawTextCentered(Window.Width - GRAPH_SLIDE_BUTTON_SAVE_SIZE - 50, 50, Window.Width - 50, 50 + GRAPH_SLIDE_BUTTON_SAVE_SIZE, 'S');
+    end;
+    with buttons[buttons.Length - 1] do begin
+      x := Window.Width - GRAPH_SLIDE_BUTTON_SAVE_SIZE - 50;
+      y := 50;
+      width := GRAPH_SLIDE_BUTTON_SAVE_SIZE;
+      height := GRAPH_SLIDE_BUTTON_SAVE_SIZE;
+      id := BUTTON_SAVE;
+    end;
+ end;
   
   procedure closeWindow();
   begin

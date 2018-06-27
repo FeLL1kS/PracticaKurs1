@@ -11,16 +11,17 @@ implementation
       0: begin
         case (buttonId) of
           BUTTON_NEW_GAME: begin
-            GameState.setState(STATE_GAME);
             var chp := Story.getChapter(1);
-            GameState.loadChapter(chp,0,0,0);
+            GameState.loadChapter(chp,1,0,0);
             Graph.drawSlide(chp.slides[0]);
+            GameState.setState(STATE_GAME);
           end;
           BUTTON_LOAD: begin
             var sv := Saver.load();
             var chp := Story.getChapter(sv.chapter);
             GameState.loadChapter(chp, sv.chapter, sv.slide, sv.score);
             Graph.drawSlide(chp.slides[sv.slide]);
+            GameState.setState(STATE_GAME);
           end;
           BUTTON_SETTINGS: begin
           end;

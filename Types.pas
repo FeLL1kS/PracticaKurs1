@@ -25,6 +25,10 @@ interface
     GRAPH_MENU_BACKGROUND_IMAGE = 'data/images/menu_background.jpg';
     GRAPH_MENU_BACKGROUND_COLOR = GraphABC.clCyan;
     
+    GRAPH_SLIDE_BUTTON_SAVE_IMAGE = 'data/images/buttons/save.png';
+    GRAPH_SLIDE_BUTTON_SAVE_SIZE = 50;
+    GRAPH_SLIDE_BUTTON_MENU_IMAGE = 'data/images/buttons/menu.png';
+    GRAPH_SLIDE_BUTTON_MENU_SIZE = 50;
     GRAPH_SLIDE_BACKGROUND_COLOR = GraphABC.clRed;
     GRAPH_TEXT_BACKGROUND_IMAGE = 'data/images/text_background.png';
   

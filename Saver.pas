@@ -14,7 +14,9 @@ var
 begin
   Assign(f, 'data/save.txt');
   rewrite(f);
-  write(f, sv.score,sv.chapter,sv.slide);
+  writeln(f, sv.chapter);
+  writeln(f, sv.slide);
+  writeln(f, sv.score);
   close(f);
 end;
 ///открытие сохранения
@@ -26,12 +28,14 @@ begin
   try
     Assign(f, 'data/save.txt');
     reset(f);
-    read(f, sv.score,sv.chapter,sv.slide);
+    readln(f, sv.chapter);
+    readln(f, sv.slide);
+    readln(f, sv.score);
     close(f);
   except
-    sv.score := 0;
     sv.chapter := 1;
     sv.slide := 0;
+    sv.score := 0;
   end;
   load:=sv;
 end;
