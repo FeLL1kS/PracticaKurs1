@@ -24,6 +24,8 @@ interface
     GRAPH_MENU_BUTTON_IMAGE_EXT = 'png';
     GRAPH_MENU_BACKGROUND_IMAGE = 'data/images/menu_background.jpg';
     GRAPH_MENU_BACKGROUND_COLOR = GraphABC.clCyan;
+    
+    GRAPH_TEXT_BACKGROUND_IMAGE = 'data/images/text_background.png';
   
   type
     Save = record

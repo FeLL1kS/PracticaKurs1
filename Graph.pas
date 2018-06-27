@@ -18,6 +18,7 @@ implementation
     Window: GraphABCWindow;
     buttons: array of OptionButton;
     clickCallback: Callback;
+    textBackground: Picture;
 
   procedure setClickCallback(cb: Callback);
   begin
@@ -42,6 +43,10 @@ implementation
 
   procedure createWindow(title: string);
   begin
+    try
+      textBackground := new Picture(GRAPH_TEXT_BACKGROUND_IMAGE);
+    except
+    end;
     Window := GraphABC.Window();
     OnMouseDown := onClick;
     Window.Init(0, 0, 0, 0, GraphABC.clBlack);
@@ -102,6 +107,7 @@ implementation
     current_x := round(Window.Width / 2 - GRAPH_BUTTON_WIDTH / 2);
     current_y := Window.Height - GRAPH_BUTTON_SPACE;
     drawTextCentered(current_x, current_y, current_x + GRAPH_BUTTON_WIDTH, current_y + GRAPH_BUTTON_HEIGHT, sl.text);
+    textBackground.Draw(current_x, current_y, GRAPH_BUTTON_WIDTH, GRAPH_BUTTON_HEIGHT);
     
     foreach opt: Option in sl.options do begin
       setLength(buttons, buttons.Length + 1);
