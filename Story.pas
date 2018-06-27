@@ -32,13 +32,13 @@ begin
   for i := 1 to length(chapt.slides) do
     chapt.slides[i].picture := 'data/images' + image + '.jpg';
   
-  a := txt.Split(';');
+  a := opt.Split(';');
   
   for i := 0 to 2 do 
   begin
-    kus := a[i];
     foreach kus in a do
-      b := kus.split('|'); end;
+      b := kus.split('|');
+  end;
   
   getChapter := chapt;
 end;
