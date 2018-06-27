@@ -1,4 +1,4 @@
-unit story;
+﻿unit story;
 
 interface
 uses 
@@ -35,8 +35,8 @@ begin
     for var j := 0 to a.Length - 1 do begin
       b := kus.split('|');
       chapt.slides[i].options[j].text := b[0];
-      chapt.slides[i].options[j].nextSlide := b[1];
-      chapt.slides[i].options[j].score := b[2];
+      chapt.slides[i].options[j].nextSlide := b[1].toInteger();
+      chapt.slides[i].options[j].score := b[2].toInteger();
     end;
     
     i += 1;
