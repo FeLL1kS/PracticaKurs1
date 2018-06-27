@@ -12,11 +12,19 @@ procedure setState(st: integer);
 function getState(): integer;
 function getFullState(): Save;
 
+procedure registerGameoverCallback(cl: Callback);
+
 implementation
 
 var
   score, slideId, chapterId, state: integer;
   Chap: Chapter;
+  gameoverCallback: Callback;
+
+procedure registerGameoverCallback(cl: Callback);
+begin
+  gameoverCallback := cl;
+end;
 
 ///изменение состояния
 procedure setState(st: integer);
@@ -55,6 +63,7 @@ begin
   try
     score += Chap.slides[slideId].options[buttonID].score;
     slideId := Chap.slides[slideId].options[buttonID].nextSlide;
+    if (slideId = Chap.slides.Length) then gameoverCallback(chapterId);
   except
   end;
   handleOption := Chap.slides[slideId];
