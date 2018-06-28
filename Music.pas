@@ -9,6 +9,6 @@ implementation
 procedure play;
 begin
   var Player := new System.Media.soundPlayer('data/soundtrec.wav');
-  Player.Play(); 
+  Player.PlayLooping(); 
 end;
 end.

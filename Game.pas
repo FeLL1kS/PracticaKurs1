@@ -40,16 +40,16 @@ implementation
           BUTTON_SAVE: begin
             Saver.fsave(GameState.getFullState());
           end;
-          else Graph.drawSlide(GameState.handleOption(buttonId));
+          else begin
+            var sl := GameState.handleOption(buttonId);
+            if ((sl.text = '') and (sl.options = nil)) then begin
+              GameState.setState(STATE_MENU);
+              Graph.drawMenu();
+            end else Graph.drawSlide(sl);
+          end;
         end;
       end;
     end;
-  end;
-  
-  procedure gameoverCallback(chapterId: integer);
-  begin
-    GameState.setState(STATE_MENU);
-    Graph.drawMenu();
   end;
   
   procedure run();
@@ -58,8 +58,6 @@ implementation
   begin
     Graph.createWindow('Цвет настроения - радужный');
     GameState.setState(STATE_MENU);
-    clickCallback := gameoverCallback;
-    GameState.registerGameoverCallback(clickCallback);
     clickCallback := onClick;
     Graph.setClickCallback(clickCallback);
     Music.play();
