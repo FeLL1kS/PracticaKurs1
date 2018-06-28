@@ -78,7 +78,7 @@ implementation
     
     current_x := round(Window.Width * GRAPH_MENU_POSITION_X - btn_width / 2);
     current_y := round(Window.Height * GRAPH_MENU_POSITION_Y - totalHeight / 2);
-    drawRectangle(current_x - round(GRAPH_BUTTON_SPACE / 2), current_y - round(GRAPH_BUTTON_SPACE / 2), current_x + btn_width + GRAPH_BUTTON_SPACE, current_y + totalHeight + GRAPH_BUTTON_SPACE);
+//    drawRectangle(current_x - round(GRAPH_BUTTON_SPACE / 2), current_y - round(GRAPH_BUTTON_SPACE / 2), current_x + btn_width + GRAPH_BUTTON_SPACE, current_y + totalHeight + GRAPH_BUTTON_SPACE);
     for var i := 0 to 3 do begin
       with buttons[i] do begin
         x := current_x;
