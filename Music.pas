@@ -1,10 +1,11 @@
-unit Music;
+﻿unit Music;
 
 interface
 uses GraphABC, Types; 
 var Player := new System.Media.soundPlayer('data/soundtrec.wav');
 procedure play();
 procedure stop();
+function enabled():boolean;
 
 implementation
 var isOn:boolean;

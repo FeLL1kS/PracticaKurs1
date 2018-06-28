@@ -8,7 +8,7 @@ interface
   
     BUTTON_NEW_GAME = 10;
     BUTTON_LOAD = 11;
-    BUTTON_SETTINGS = 12;
+    BUTTON_MUSIC = 12;
     BUTTON_EXIT = 13;
     BUTTON_MENU = 20;
     BUTTON_SAVE = 21;
@@ -17,7 +17,7 @@ interface
     GRAPH_BUTTON_HEIGHT = 45;
     GRAPH_BUTTON_SPACE = 50;
     
-    GRAPH_MENU_POSITION_X = 0.5;
+    GRAPH_MENU_POSITION_X = 0.2;
     GRAPH_MENU_POSITION_Y = 0.5;
     GRAPH_MENU_BUTTON_SCALE = 1.2;
     GRAPH_MENU_BUTTON_IMAGE_PATH = 'data/images/buttons/menu_';

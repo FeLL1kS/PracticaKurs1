@@ -23,7 +23,9 @@ implementation
             Graph.drawSlide(chp.slides[sv.slide]);
             GameState.setState(STATE_GAME);
           end;
-          BUTTON_SETTINGS: begin
+          BUTTON_MUSIC: begin
+            if (Music.enabled()) then Music.stop()
+            else Music.play();
           end;
           BUTTON_EXIT: begin
             Graph.closeWindow();
