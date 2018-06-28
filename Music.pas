@@ -7,14 +7,23 @@ procedure play();
 procedure stop();
 
 implementation
+var isOn:boolean;
 ///музыка
 procedure play();
+
 begin
-  Player.PlayLooping()
+ isOn:=True;
+ Player.PlayLooping()
 end;
 
 procedure stop();
 begin
+  isOn:=False;
   Player.Stop();
+end;
+
+function enabled():boolean;
+begin
+enabled:=isOn;
 end;
 end.
